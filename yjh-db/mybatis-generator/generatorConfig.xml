@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="mysqlgenerator" targetRuntime="MyBatis3">
+        <property name="autoDelimitKeywords" value="true"/>
+        <!--可以使用``包括字段名，避免字段名与sql保留字冲突报错-->
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <!-- 自动生成toString方法 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <!-- 自动生成equals方法和hashcode方法 -->
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+
+        <!-- 非官方插件 https://github.com/itfsw/mybatis-generator-plugin -->
+        <!-- 查询单条数据插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.SelectOneByExamplePlugin"/>
+        <!-- 查询结果选择性返回插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.SelectSelectivePlugin"/>
+        <!-- Example Criteria 增强插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.ExampleEnhancedPlugin"/>
+        <!-- 数据Model属性对应Column获取插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.ModelColumnPlugin"/>
+        <!-- 逻辑删除插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.LogicalDeletePlugin">
+            <!-- 这里配置的是全局逻辑删除列和逻辑删除值，当然在table中配置的值会覆盖该全局配置 -->
+            <!-- 逻辑删除列类型只能为数字、字符串或者布尔类型 -->
+            <property name="logicalDeleteColumn" value="deleted"/>
+            <!-- 逻辑删除-已删除值 -->
+            <property name="logicalDeleteValue" value="1"/>
+            <!-- 逻辑删除-未删除值 -->
+            <property name="logicalUnDeleteValue" value="0"/>
+        </plugin>
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <!--<property name="suppressAllComments" value="true"/>-->
+        </commentGenerator>
+
+        <!--数据库连接信息-->
+        <jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+                        connectionURL="jdbc:sqlserver://127.0.0.1:1433;databaseName=yjh_2"
+                        userId="sa"
+                        password="pcy19971024"/>
+
+        <javaTypeResolver>
+            <property name="useJSR310Types" value="true"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.yjh.db.domain" targetProject="src/main/java"/>
+        <sqlMapGenerator targetPackage="com.yjh.db.dao" targetProject="src/main/resources"/>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.yjh.db.dao"
+                             targetProject="src/main/java"/>
+        <!--表名-->
+        <!--<table  tableName="all_ddlx">-->
+            <!--<generatedKey column="ddlxbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="all_ddzt">-->
+            <!--<generatedKey column="ddztbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="all_gys">-->
+            <!--<generatedKey column="gysbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="all_hycllx">-->
+            <!--<generatedKey column="hycllxbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="all_hydj">-->
+            <!--<generatedKey column="hydjbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="all_kzsx">-->
+            <!--<generatedKey column="kzsxbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="all_shzt">-->
+            <!--<generatedKey column="shztbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <table tableName="all_spfl">
+            <generatedKey column="spflbm" sqlStatement="SqlServer" identity="true"/>
+        </table>
+        <!--<table tableName="all_spgg">-->
+            <!--<generatedKey column="spggbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="all_spggsxz">-->
+            <!--<generatedKey column="spggsxzbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="all_spjbxx">-->
+            <!--<generatedKey column="spjbxxbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="all_spjkctp">-->
+            <!--<generatedKey column="tpxh" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="all_spkc">-->
+            <!--<generatedKey column="spkcbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="all_spkzsxz">-->
+            <!--<generatedKey column="spkzsxz" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="all_splbkzsx">-->
+            <!--<generatedKey column="splbkzsx" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="all_sppp">-->
+            <!--<generatedKey column="spppbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="all_spssbk">-->
+            <!--<generatedKey column="spssbkbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="all_yfgz">-->
+            <!--<generatedKey column="yfgzbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="all_yfgzgc">-->
+            <!--<generatedKey column="yfgzgcbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="all_ywqy">-->
+            <!--<generatedKey column="ywqybm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="all_zffs">-->
+            <!--<generatedKey column="zffsbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="hy_cl">-->
+            <!--<generatedKey column="clbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="hy_clwj">-->
+            <!--<generatedKey column="clwjbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="hy_hyjbxx">-->
+            <!--<generatedKey column="hyjbxxbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="all_shdz">-->
+            <!--<generatedKey column="dzbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="hy_hyzt">-->
+            <!--<generatedKey column="hyztbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="hy_hyztxgjl">-->
+            <!--<generatedKey column="hyztxgjlbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="hy_shjl">-->
+            <!--<generatedKey column="shjlbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="sys_js">-->
+            <!--<generatedKey column="jsbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="sys_jsqx">-->
+            <!--<generatedKey column="jsqxbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="sys_qx">-->
+            <!--<generatedKey column="qxbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="sys_qxz">-->
+            <!--<generatedKey column="qxzbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="sys_yh">-->
+            <!--<generatedKey column="yhbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="sys_yhlb">-->
+            <!--<generatedKey column="yhlbbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="sys_yhqx">-->
+            <!--<generatedKey column="yhqxbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="xs_dd">-->
+            <!--<generatedKey column="ddbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="xs_ddmx">-->
+            <!--<generatedKey column="ddmxbm" sqlStatement="SqlServer" identity="true"/>-->
+        <!--</table>-->
+
+    </context>
+</generatorConfiguration>

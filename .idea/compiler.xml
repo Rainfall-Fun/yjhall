@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="yjh-admi-api" />
+        <module name="yjh-all-1" />
+        <module name="yjh-core" />
+        <module name="yjh-db" />
+        <module name="yjh-wx-api" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="yjh-all" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="yjh-admi-api" options="-parameters" />
+      <module name="yjh-all-1" options="-parameters" />
+      <module name="yjh-core" options="-parameters" />
+      <module name="yjh-db" options="-parameters" />
+      <module name="yjh-wx-api" options="-parameters" />
+      <module name="yjhall" options="" />
+    </option>
+  </component>
+</project>

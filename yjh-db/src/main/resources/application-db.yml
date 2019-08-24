@@ -1,0 +1,43 @@
+pagehelper:
+  helperDialect:  sqlserver
+  reasonable: true
+  supportMethodsArguments:  true
+  params: count=countSql
+
+spring:
+  datasource:
+    druid:
+      url:  jdbc:sqlserver://localhost:1433;databaseName=yjh
+      driver-class-name:  com.microsoft.sqlserver.jdbc.SQLServerDriver
+      username:  sa
+      password:  pcy19971024
+      initial-size:  10
+      max-active:  50
+      min-idle:  10
+      max-wait:  60000
+      pool-prepared-statements:  true
+      max-pool-prepared-statement-per-connection-size:  20
+      test-on-borrow:  false
+      test-on-return:  false
+      test-while-idle:  true
+      time-between-eviction-runs-millis:  60000
+      filters:  stat,wall
+#spring:
+#  datasource:
+#    druid:
+#      url:  jdbc:sqlserver://10.1.206.245:1433;databaseName=yjh_2
+#      driver-class-name:  com.microsoft.sqlserver.jdbc.SQLServerDriver
+#      username:  hive
+#      password:  CQJTDXxxxy62652751
+#      initial-size:  10
+#      max-active:  50
+#      min-idle:  10
+#      max-wait:  60000
+#      pool-prepared-statements:  true
+#      max-pool-prepared-statement-per-connection-size:  20
+#      test-on-borrow:  false
+#      test-on-return:  false
+#      test-while-idle:  true
+#      time-between-eviction-runs-millis:  60000
+#      filters:  stat,wall
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjh.db.dao.GoodsSpecificationMapper">
+  <resultMap id="BaseResultMap" type="com.yjh.db.domain.GoodsSpecification">
+    <result column="spsj" jdbcType="NUMERIC" property="price" />
+    <result column="spggsxzbm" jdbcType="INTEGER" property="id" />
+    <result column="kc" jdbcType="NUMERIC" property="amount" />
+    <result column="ggmc" jdbcType="VARCHAR" property="name" />
+    <result column="ggz" jdbcType="VARCHAR" property="value" />
+    <result column="tpljjmc" jdbcType="VARCHAR" property="urlPic" />
+  </resultMap>
+
+  <select id="getSpecificationByGoodsId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+
+    select all_spggsxz.spggsxzbm,ggmc,ggz,spsj,kc,tpljjmc from all_spgg,all_spggsxz,all_spjggtp where all_spgg.spggbm=all_spggsxz.spggbm and all_spjggtp.spggsxzbm=all_spggsxz.spggsxzbm and all_spgg.spbm=#{goodsId};
+  </select>
+
+
+</mapper>
